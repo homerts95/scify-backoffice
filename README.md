@@ -1,66 +1,29 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+## Project Documentation
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+### Overview
+This project was developed using PHP with the Laravel framework, integrating the Breeze package for authentication and session management.
+The frontend is powered by InertiaJS and Vue.js, ensuring a responsive and interactive user interface.
 
-## About Laravel
+### Authentication Customization
+The authentication process has been customized. Unlike a standard email-password login mechanism which laravel already provides,
+the login page for this project only accepts the username 'Antigoni'.
+For a successful authentication, a password is programmatically assigned in the background to initiate the user session during the authentication process.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Database Design
+The database schema is designed to reflect the relationships within the application data in a more scalable manner. It consists of three primary tables:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+1. **Games:** Stores information related to various games / exercises.
+2. **Applications:**  Holds records of the applications.
+3. **Creators:** Holds records of creators.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+The 'Games' table has a many-to-one relationship with both the 'Applications' and 'Creators' tables. This relational design facilitates efficient data retrieval and manipulation.
 
-## Learning Laravel
+### Dashboard and Data Presentation
+Post-login, users are directed to the dashboard of the application. The dashboard presents data comprehensively, showing interconnected information between games, applications, and creators. A generic table component is used to display the data in a structured and user-friendly format, ensuring that the relationships and other information are clearly visible and easily accessible.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Potential Further Improvements
+1. **Excel Importer:** Integrate an Excel importer with a frontend interface to dynamically import games, applications, and creators. This feature would allow users to upload Excel files and seamlessly populate the database, enhancing the flexibility and user-friendliness of data management.
+2. **The Rest of CRUD:** Implement the full spectrum of CRUD (Create, Read, Update, Delete) functionalities. This addition would enable comprehensive data management directly from the dashboard, allowing users to not only view but also modify the table data as needed. Further improvements could include advanced validation, and user feedback mechanisms for each action.
+3. **Advanced Search and Filtering:** Implement an advanced search and filtering mechanism to navigate through the large datasets efficiently. This feature would allow users to filter data based on specific criteria, sort through records, and find the exact information they need with ease.
+4. **User Role Management:** Introduce a user role and permission system to manage access levels and functionalities based on user roles.
+5. **Localization and Internationalization:** Implement localization and internationalization to cater to a global audience by supporting multiple languages and regional settings.
